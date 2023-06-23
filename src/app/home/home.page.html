@@ -1,20 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Estos son algunos de nuestros vasos para tragos, Haz click en uno para ver los tragos que pueden preparase en el</ion-card-title>
+      <br><br>
+      <ion-card-subtitle>Puedes filtrar los vasos por descripcion aqui</ion-card-subtitle>
+      <ion-searchbar [(ngModel)]="selectedglasstwo" (keyup.enter)="filtercocktails()"></ion-searchbar>
+      <br>
+      <ion-card-subtitle>Tambien puedes filtrar tragos por nombre aqui abajo</ion-card-subtitle>
+      <ion-searchbar [(ngModel)]="cocktail" (keyup.enter)="filtercocktailsbyname()"></ion-searchbar>
+    </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let glass of data.slice(0,10)">
+         <!--  <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" src=""/> 
+          </ion-thumbnail> -->
+           <!-- <ion-input id="auxvaso" (click)="llenardata3(vaso)">{{vaso.strGlass}}</ion-input>-->
+            <span id="auxvaso" (click)="getcocktails(glass)">{{glass.strGlass}} </span>
+        </ion-item>      
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+ 
+
+  <!--
+  <ion-label for="op">Elije un tipo de vaso para ver los tragos que pueden preparase en el</ion-label>
+  <ion-select [(ngModel)]="vasoselec" (ionChange)="llenardata3(vaso)" id="op">
+    <ion-select-option value="" selected disabled>Selecciona una opción</ion-select-option>
+    <ion-select-option *ngFor="let vaso of data.slice(0,10)">{{vaso.strGlass}}</ion-select-option>
+  </ion-select>-->
+
 </ion-content>

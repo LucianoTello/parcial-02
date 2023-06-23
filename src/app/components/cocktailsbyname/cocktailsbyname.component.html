@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Esta es una lista de los tragos que coinciden con tu busqueda
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let i of cocktailname.drinks">
+          <ion-thumbnail slot="start">
+           <img alt="Silhouette of mountains" src="{{i.strDrinkThumb}}"/>
+          </ion-thumbnail>
+           <!-- <ion-input id="auxvaso" (click)="llenardata3(vaso)">{{vaso.strGlass}}</ion-input>-->
+            <span >{{i.strDrink}} </span>
+        </ion-item>      
+  
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-button (click)="redirecttohome()">Volver</ion-button>

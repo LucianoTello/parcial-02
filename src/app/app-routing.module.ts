@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CocktailsComponent } from './components/cocktails/cocktails.component';
+import { CocktailsbynameComponent } from './components/cocktailsbyname/cocktailsbyname.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'cocktails',
+    component : CocktailsComponent
+  },
+  {
+    path: 'cocktailsbyname',
+    component : CocktailsbynameComponent
+  }
 ];
 
 @NgModule({
