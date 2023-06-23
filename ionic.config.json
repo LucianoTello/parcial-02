@@ -1,0 +1,7 @@
+{
+  "name": "parcial-02",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
