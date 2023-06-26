@@ -10,13 +10,21 @@
  
   <ion-grid>
     <ion-row>
-      <ion-col size="4" *ngFor="let cocktail of dataFromParent">
+      <ion-col size="6" *ngFor="let cocktail of dataFromParent">
         <ion-item lines="full">
           <ion-thumbnail slot="start">
-            <img [src]="cocktail.strDrinkThumb" alt="Drink Image">
+            <img (click)="getcocktails2(cocktail)"[src]="cocktail.strDrinkThumb" alt="Drink Image">
           </ion-thumbnail>
           <ion-label>
-            <h2 id="auxvaso" >{{ cocktail.strDrink }}</h2>
+            <h2 (click)="getcocktails2(cocktail)" >{{ cocktail.strDrink }}</h2> <!--id="auxvaso"-->
+            <ion-alert
+              [isOpen]="isAlertOpen"
+              header=""
+              subHeader=""
+              message="{{ selectedglass }}"
+              [buttons]="alertButtons"
+              (didDismiss)="setOpen(false)"
+            ></ion-alert>
           </ion-label>
         </ion-item>
       </ion-col>

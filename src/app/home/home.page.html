@@ -1,3 +1,4 @@
+<!--
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -22,10 +23,10 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let glass of data.slice(0,10)">
-         <!--  <ion-thumbnail slot="start">
+         <ion-thumbnail slot="start">
           <img alt="Silhouette of mountains" src=""/> 
           </ion-thumbnail> -->
-           <!-- <ion-input id="auxvaso" (click)="llenardata3(vaso)">{{vaso.strGlass}}</ion-input>-->
+           <!-- <ion-input id="auxvaso" (click)="llenardata3(vaso)">{{vaso.strGlass}}</ion-input>
             <span id="auxvaso" (click)="getcocktails(glass)">{{glass.strGlass}} </span>
         </ion-item>      
 
@@ -34,11 +35,41 @@
   </ion-card>
  
 
-  <!--
+  
   <ion-label for="op">Elije un tipo de vaso para ver los tragos que pueden preparase en el</ion-label>
   <ion-select [(ngModel)]="vasoselec" (ionChange)="llenardata3(vaso)" id="op">
     <ion-select-option value="" selected disabled>Selecciona una opción</ion-select-option>
     <ion-select-option *ngFor="let vaso of data.slice(0,10)">{{vaso.strGlass}}</ion-select-option>
-  </ion-select>-->
+  </ion-select>
 
+</ion-content>
+-->
+*******************************************************************************
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Estos son algunos de nuestros vasos para tragos. Haz click en uno para ver los tragos que se pueden preparar en él.</ion-card-title>
+      <ion-card-subtitle>Puedes filtrar los vasos por descripción aquí</ion-card-subtitle>
+      <ion-searchbar [(ngModel)]="selectedglasstwo" (keyup.enter)="filtercocktailsbyglass()"></ion-searchbar>
+      <ion-card-subtitle>También puedes filtrar tragos por nombre aquí abajo</ion-card-subtitle>
+      <ion-searchbar [(ngModel)]="cocktail" (keyup.enter)="filtercocktailsbyname()"></ion-searchbar>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let glass of data.slice(0,10)" class="glass-item" (click)="getcocktails(glass)">
+          <ion-label>{{glass.strGlass}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
